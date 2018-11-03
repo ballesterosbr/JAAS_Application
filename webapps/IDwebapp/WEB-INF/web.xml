@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+    version="3.1"
+    metadata-complete="true">
+
+    <description>ID webapp</description>
+    <display-name>ID webapp</display-name>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+    <security-constraint>
+        <display-name>Menu</display-name>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/secure/menu.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>MANAGEMENT</role-name>
+            <role-name>SALES</role-name>
+            <role-name>PURCHASES</role-name>
+            <role-name>HUMANR</role-name>
+            <role-name>AUDITOR</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>Acceso a gestión de facturas</display-name>
+        <web-resource-collection>
+            <web-resource-name>Facturas</web-resource-name>
+            <url-pattern>/secure/ventas/gestion_facturas.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>SALES</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Acceso a gestión de clientes</display-name>
+        <web-resource-collection>
+            <web-resource-name>Clientes</web-resource-name>
+            <url-pattern>/secure/ventas/gestion_clientes.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>AUDITOR</role-name>
+            <role-name>SALES</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Acceso a gestión de presupuestos</display-name>
+        <web-resource-collection>
+            <web-resource-name>Presupuestos</web-resource-name>
+            <url-pattern>/secure/ventas/gestion_presupuestos.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>SALES</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>Acceso a gestión de nóminas</display-name>
+        <web-resource-collection>
+            <web-resource-name>Nóminas</web-resource-name>
+            <url-pattern>/secure/nominas/gestion_nominas.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>HUMANR</role-name>
+            <role-name>AUDITOR</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Acceso a gestión de trabajadores</display-name>
+        <web-resource-collection>
+            <web-resource-name>Trabajadores</web-resource-name>
+            <url-pattern>/secure/nominas/gestion_trabajadores.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>HUMANR</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <display-name>Acceso a la gestión de proveedores</display-name>
+        <web-resource-collection>
+            <web-resource-name>Proveedores</web-resource-name>
+            <url-pattern>/secure/compras/gestion_proveedores.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>PURCHASES</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Acceso a la autorización de compras</display-name>
+        <web-resource-collection>
+            <web-resource-name>Autorización</web-resource-name>
+            <url-pattern>/secure/compras/autorizar_compras.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>MANAGEMENT</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Acceso a la gestión de compras</display-name>
+        <web-resource-collection>
+            <web-resource-name>Gestión</web-resource-name>
+            <url-pattern>/secure/compras/gestion_compras.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>PURCHASES</role-name>
+            <role-name>AUDITOR</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/secure/403.jsp</location>
+    </error-page>
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>Form-Based Authentication Area</realm-name>
+        <form-login-config>
+            <form-login-page>/secure/login.jsp</form-login-page>
+            <form-error-page>/secure/error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+
+    <security-role><role-name>MANAGEMENT</role-name></security-role>
+    <security-role><role-name>SALES</role-name></security-role>
+    <security-role><role-name>PURCHASES</role-name></security-role>
+    <security-role><role-name>HUMANR</role-name></security-role>
+    <security-role><role-name>AUDITOR</role-name></security-role>
+</web-app>
