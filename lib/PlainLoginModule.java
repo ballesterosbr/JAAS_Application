@@ -124,7 +124,7 @@ public class PlainLoginModule implements LoginModule {
  
         try {
  
-            PlainUserPrincipal userPrincipal = new PlainUserPrincipal(userInfo.getLoginName());
+            PlainUserPrincipal userPrincipal = new PlainUserPrincipal(userInfo.getFullName());
             subject.getPrincipals().remove(userPrincipal);
 
             for (String userRole : userInfo.getUserRoles()) {
