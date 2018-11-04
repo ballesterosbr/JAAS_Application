@@ -8,7 +8,6 @@ import java.util.HashMap;
 import org.bouncycastle.jcajce.provider.digest.SHA3;
 import org.bouncycastle.util.encoders.Hex;
 
-
 public class PlainPasswdModule {
 
     private String passwdFile;
@@ -118,6 +117,7 @@ public class PlainPasswdModule {
         public ArrayList<String> getUserRoles() {
             return roles;
         }
+        
         public String getFullName() {
             return fullName;
         }

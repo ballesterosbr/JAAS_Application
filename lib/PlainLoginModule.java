@@ -1,6 +1,5 @@
 import java.io.IOException;
 import java.util.Map;
- 
 import javax.security.auth.Subject;
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
@@ -25,7 +24,6 @@ public class PlainLoginModule implements LoginModule {
     /** Subject to store. */
     private Subject subject;
 
-    /**Declaración a las clases auxiliares */
     private PlainPasswdModule passModule;
     private PlainPasswdModule.User userInfo;
  
@@ -101,7 +99,7 @@ public class PlainLoginModule implements LoginModule {
             String password = String.valueOf(((PasswordCallback) callbacks[1]).getPassword());
  
             userInfo = passModule.getUserByLoginName(name);
-		
+
             if(!userInfo.checkPassword(password)) {
                  throw new LoginException("Authentication failed");
             }
